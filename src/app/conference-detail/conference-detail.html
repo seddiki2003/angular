@@ -1,0 +1,23 @@
+<main>
+  <h2>Détail de la conférence</h2>
+  <!-- L'interpolation lit les valeurs des signals et le pipe transforme la date. -->
+  <p>Titre : {{ title() }}</p>
+  <p>Intervenant : {{ speaker() }}</p>
+  <p>Date : {{ date() }}</p>
+  <p>Places disponibles : {{ places() }}</p>
+
+  <label for="conference-title">Modifier le titre</label>
+  <!-- Le binding synchronise l'input avec le signal dans les deux sens. -->
+  <input
+    id="conference-title"
+    [ngModel]="title()"
+    (ngModelChange)="title.set($event)"
+  />
+
+  <!-- @if remplace le bouton d'inscription par l'état complet à zéro place. -->
+  @if (places() > 0) {
+    <button (click)="register()">S'inscrire</button>
+  } @else {
+    <p role="status">Complet</p>
+  }
+</main>

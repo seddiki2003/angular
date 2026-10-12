@@ -1,0 +1,9 @@
+<section>
+  <h2>Notifications</h2>
+  <ul>
+    <!-- @for parcourt la liste en suivant chaque message comme identité stable. -->
+    @for (notification of notifications(); track notification) {
+      <li>{{ notification }}</li>
+    }
+  </ul>
+</section>

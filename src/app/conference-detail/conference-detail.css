@@ -1,0 +1,26 @@
+main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+label,
+input {
+  display: block;
+  margin-bottom: 12px;
+}
+
+input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 8px;
+}
+
+button {
+  padding: 10px 14px;
+  color: white;
+  background-color: #176b35;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+}

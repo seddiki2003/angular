@@ -1,0 +1,13 @@
+<h2>Profil Utilisateur</h2>
+<p>Bienvenue sur votre page profil.</p>
+
+<section>
+  <h3>Liste des amis</h3>
+  <ul>
+    @for (ami of amis(); track ami) {
+      <li>{{ ami }}</li>
+    }
+  </ul>
+</section>
+
+<app-notifications></app-notifications>

@@ -1,0 +1,8 @@
+<article>
+  <!-- L'interpolation affiche les valeurs ; les pipes uppercase et date les mettent en forme. -->
+  <h3>{{ conference().title | uppercase }}</h3>
+  <p>{{ conference().description }}</p>
+  <p>Date : {{ conference().date | date: 'dd/MM/yyyy' }}</p>
+  <p>Lieu : {{ conference().place }}</p>
+  <p>Participants : {{ conference().nbParticipants }} / {{ conference().maxParticipants }}</p>
+</article>

@@ -1,0 +1,37 @@
+main {
+  padding: 30px;
+}
+
+.conference-list {
+  display: grid;
+  gap: 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.conference-card {
+  padding: 16px;
+  border: 1px solid #d7dce2;
+  border-radius: 8px;
+}
+
+button {
+  border: 0;
+  border-radius: 4px;
+  padding: 10px 14px;
+  color: white;
+  cursor: pointer;
+}
+
+.places-high {
+  background-color: #176b35;
+}
+
+.places-low {
+  background-color: #995000;
+}
+
+.places-none {
+  background-color: #a32222;
+  cursor: not-allowed;
+}

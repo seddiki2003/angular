@@ -1,0 +1,28 @@
+<main>
+  <h2>Conférences à venir</h2>
+  <ul class="conference-list">
+    <!-- @for affiche les conférences filtrées et suit chacune par son titre. -->
+    @for (conference of upcomingConferences(); track conference.title) {
+      <li class="conference-card">
+        <app-conference-details [conference]="conference"></app-conference-details>
+        <!-- Le property binding choisit la couleur et l'état désactivé du bouton. -->
+        <!-- Le binding d'événement inscrit un participant et met à jour le signal. -->
+        <button
+          [class.places-high]="remainingPlaces(conference) >= 10"
+          [class.places-low]="remainingPlaces(conference) > 0 && remainingPlaces(conference) < 10"
+          [class.places-none]="remainingPlaces(conference) === 0"
+          [disabled]="remainingPlaces(conference) === 0"
+          (click)="register(conference)"
+        >
+          @if (remainingPlaces(conference) > 0) {
+            S'inscrire
+          } @else {
+            Complet
+          }
+        </button>
+      </li>
+    } @empty {
+      <li>Aucune conférence enregistrée</li>
+    }
+  </ul>
+</main>
