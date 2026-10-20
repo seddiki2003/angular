@@ -12,8 +12,14 @@ export const routes: Routes = [
       import('./conference-list/conference-list').then((module) => module.ConferenceList)
   },
   {
+    path: 'conference-detail/:id',
+    loadComponent: () =>
+      import('./conference-detail/conference-detail').then((module) => module.ConferenceDetail)
+  },
+  {
     path: 'conference-detail',
     loadComponent: () =>
       import('./conference-detail/conference-detail').then((module) => module.ConferenceDetail)
-  }
+  },
+  {path: 'user-form', loadComponent: () => import('./user-form/user-form').then((module) => module.UserForm) }
 ];

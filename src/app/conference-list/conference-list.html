@@ -5,6 +5,12 @@
     @for (conference of upcomingConferences(); track conference.title) {
       <li class="conference-card">
         <app-conference-details [conference]="conference"></app-conference-details>
+        <a
+          class="details-link"
+          [routerLink]="['/conference-detail', conference.id]"
+        >
+          Voir le détail
+        </a>
         <!-- Le property binding choisit la couleur et l'état désactivé du bouton. -->
         <!-- Le binding d'événement inscrit un participant et met à jour le signal. -->
         <button

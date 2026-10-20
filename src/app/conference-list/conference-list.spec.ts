@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 
 import { ConferenceList } from './conference-list';
 
@@ -9,6 +10,7 @@ describe('ConferenceList', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ConferenceList],
+      providers: [provideRouter([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ConferenceList);
@@ -21,10 +23,15 @@ describe('ConferenceList', () => {
   });
 
   it('filters past conferences and shows the availability state', () => {
-    const buttons = (fixture.nativeElement as HTMLElement).querySelectorAll('button');
+    const element = fixture.nativeElement as HTMLElement;
+    const buttons = element.querySelectorAll('button');
+    const detailsLinks = element.querySelectorAll<HTMLAnchorElement>('.details-link');
 
     expect(component.upcomingConferences()).toHaveLength(4);
     expect(buttons).toHaveLength(4);
+    expect(detailsLinks).toHaveLength(4);
+    expect(detailsLinks[0].textContent?.trim()).toBe('Voir le détail');
+    expect(detailsLinks[0].getAttribute('href')).toBe('/conference-detail/1');
     expect(buttons[0].classList.contains('places-high')).toBe(true);
     expect(buttons[1].classList.contains('places-low')).toBe(true);
     expect(buttons[2].classList.contains('places-none')).toBe(true);
